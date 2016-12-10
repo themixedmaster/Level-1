@@ -29,8 +29,11 @@ public class Smurf {
 
 	/* Papa Smurf wears a red hat, all the others are white. */
 	public String getHatColor() {
-		// 3. Fill in this method
-		return "";
+		if(name.equalsIgnoreCase("Papa Smurf")){
+			return "I have a red hat.";	
+		}else{
+		return "I have a white hat.";
+		}
 	}
 
 
