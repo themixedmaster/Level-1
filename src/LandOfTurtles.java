@@ -19,7 +19,7 @@ public class LandOfTurtles {
 		panel.setBackgroundImage(galapagosIslands);
 		frame.setVisible(true);
 		frame.setSize(1000, 1000);
-		for(int i = 0; i <= 999999998; i++){
+		for(int i = 0; i <= 1000; i++){
 			int x = new Random().nextInt(1000);
 			int y = new Random().nextInt(1000);
 			Turtle turt = new Turtle();
