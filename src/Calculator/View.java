@@ -56,5 +56,38 @@ public class View {
 		panel.add(multiply);
 		panel.add(divide);
 		panel.add(modulo);
+		
+	}
+	void setLabelOne(String muh){
+		num1.setText(muh);
+	}
+	void setLabelTwo(String muh){
+		mathType.setText(muh);
+	}
+	void setLabelTree(String muh){
+		num2.setText(muh);
+	}
+	void setLabelFour(String muh){
+		answer.setText(muh);
+	}
+	public void addListener(Controller controller) {
+		// TODO Auto-generated method stub
+		one.addActionListener(controller);
+		two.addActionListener(controller);
+		tree.addActionListener(controller);
+		four.addActionListener(controller);
+		five.addActionListener(controller);
+		six.addActionListener(controller);
+		seven.addActionListener(controller);
+		eight.addActionListener(controller);
+		nine.addActionListener(controller);
+		zero.addActionListener(controller);
+		plus.addActionListener(controller);
+		minus.addActionListener(controller);
+		multiply.addActionListener(controller);
+		divide.addActionListener(controller);
+		modulo.addActionListener(controller);
+		equals.addActionListener(controller);
+		clear.addActionListener(controller);
 	}
 }
