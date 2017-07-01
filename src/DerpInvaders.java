@@ -15,6 +15,7 @@ public class DerpInvaders {
 	}
 	void setup(){
 		anythingYouWant.add(pannel);
+		anythingYouWant.addKeyListener(pannel);
 		anythingYouWant.setSize(WIDTH, HIGHT);
 		anythingYouWant.setVisible(true);
 		anythingYouWant.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
