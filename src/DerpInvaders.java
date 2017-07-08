@@ -3,8 +3,8 @@ import javax.swing.JFrame;
 public class DerpInvaders {
 	JFrame anythingYouWant;
 	GamePanel pannel;
-	final int WIDTH = 501;
-	final int HIGHT = 799;
+	static final int WIDTH = 501;
+	static final int HIGHT = 799;
 	public static void main(String[] args) {
 		DerpInvaders adventure = new DerpInvaders();
 	}

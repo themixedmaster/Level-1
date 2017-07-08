@@ -6,11 +6,8 @@ public class GameObject {
 	int width;
 	int height;
 	void update(){
-		x++;
-		y++;
 	}
 	void draw(Graphics sharkie){
-		sharkie.fillRect(x, y, 100, 100);
 	}
 
 }
