@@ -10,16 +10,18 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
+	ObjectManager keith = new ObjectManager();
 	Font titleFont;
 	Timer mrClock; 
 	final int MENU_STATE = 0;
 	final int GAME_STATE = 1;
 	final int END_STATE = 2;
 	int currentState = MENU_STATE;
-	rocketShip melon = new rocketShip
+	rocketShip melon = new rocketShip(250, 700, 50, 51);
 	GamePanel(){
 		mrClock = new Timer(1000/60,this);
 		titleFont = new Font("Arial",Font.PLAIN,50);
+		keith.addObject(melon);
 	}
 	void StartGame(){
 		mrClock.start();
@@ -28,7 +30,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		
 	}
 	void updateGameState(){
-		
+		keith.update();
 	}
 	void updateEndState(){
 		
@@ -43,7 +45,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 	void drawGameState(Graphics g){
 		g.setColor(new Color(208,64,88));
-		g.fillRect(0, 0, DerpInvaders.WIDTH, DerpInvaders.HIGHT);   
+		g.fillRect(0, 0, DerpInvaders.WIDTH, DerpInvaders.HIGHT); 
+		keith.draw(g);
 	}
 	void drawEndState(Graphics g){
 		g.setColor(new Color(255,128,128));
@@ -84,19 +87,32 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			if(currentState > END_STATE){
 				currentState = MENU_STATE;
 			}
+		
 
+		}
+		if(e.getKeyCode() == 37){
+			melon.x = melon.x - melon.speed;
+		}
+		if(e.getKeyCode() == 38){
+			melon.y = melon.y - melon.speed;
+		}
+		if(e.getKeyCode() == 39){
+			melon.x = melon.x + melon.speed;
+		}
+		if(e.getKeyCode() == 40){
+			melon.y = melon.y + melon.speed;
 		}
 		
 	}
 	@Override
 	public void keyReleased(KeyEvent arg0) {
 		// TODO Auto-generated method stub
-		System.out.println("2");
+		System.out.println("Melon");
 	}
 	@Override
 	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub
-		System.out.println("7");
+		System.out.println("MELON!");
 	}
 
 }
