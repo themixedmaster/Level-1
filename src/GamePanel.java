@@ -5,10 +5,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
+	public static BufferedImage alienImg;
+	public static BufferedImage rocketImg;
+	public static BufferedImage bulletImg;
 	ObjectManager keith = new ObjectManager();
 	Font titleFont;
 	Timer mrClock; 
@@ -18,9 +25,17 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	int currentState = MENU_STATE;
 	rocketShip melon = new rocketShip(250, 700, 50, 51);
 	GamePanel(){
-		mrClock = new Timer(1000/60,this);
+		mrClock = new Timer(1000/10,this);
 		titleFont = new Font("Arial",Font.PLAIN,50);
 		keith.addObject(melon);
+		try {
+			alienImg = ImageIO.read(this.getClass().getResourceAsStream("moss brick1.png"));
+			rocketImg = ImageIO.read(this.getClass().getResourceAsStream("Melon1.png"));
+			bulletImg = ImageIO.read(this.getClass().getResourceAsStream("melonSeed.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	void StartGame(){
 		mrClock.start();
@@ -32,9 +47,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		keith.update();
 		keith.manageEnemies();
 		keith.checkCollision();
+		if( melon.isAlive == false){
+			currentState = END_STATE;
+			keith.reset();
+			melon = new rocketShip(250, 700, 50, 51);
+			keith.addObject(melon);
+		}
 	}
 	void updateEndState(){
-		
+		keith.getScore();
 	}
 	void drawMenuState(Graphics g){
 		g.setColor(new Color(255,224,32));

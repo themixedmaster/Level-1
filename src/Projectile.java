@@ -15,7 +15,7 @@ public class Projectile extends GameObject {
 		}
 	}
 	void draw(Graphics sharkie){
-		sharkie.setColor(new Color(0,0,0));
-		sharkie.fillRect(x, y, width, height);
+		sharkie.drawImage(GamePanel.bulletImg, x, y, width, height, null);
+
 	}
 }
